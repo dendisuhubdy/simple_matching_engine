@@ -47,7 +47,7 @@ add_executable(exchange
     main.cpp)
 add_dependencies(exchange versionFileTouchForRebuild) # We want precise time of build in version
 target_include_directories(exchange PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries (exchange PRIVATE Threads::Threads)
+target_link_libraries (exchange PRIVATE Threads::Threads nlohmann_json::nlohmann_json)
 
 if(APPLE)
     set_target_properties(exchange PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "exchange")
@@ -95,6 +95,10 @@ add_custom_target(run DEPENDS exchange-run)
 # find_package(GLUT REQUIRED)
 # target_include_directories(exchange SYSTEM ${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS} )
 # target_link_libraries(exchange ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
+
+find_package(nlohmann_json 3.2.0 REQUIRED)
+
+target_link_libraries(exchange PRIVATE nlohmann_json::nlohmann_json)
 
 # How to use some other standard packages
 # find_package(ZLIB REQUIRED) 

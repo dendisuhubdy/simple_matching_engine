@@ -24,8 +24,8 @@ ExternalHeaderOnly_Add(Catch
 #------------------------------------------------------------------------------
 # target_link_libraries (exampleApp PRIVATE json)
 # #include <nlohmann/json.hpp>
-# ExternalHeaderOnly_Add(json
-#     "https://github.com/nlohmann/json.git" "origin/master" "single_include")
+ExternalHeaderOnly_Add(json
+     "https://github.com/nlohmann/json.git" "origin/master" "single_include")
 
 #------------------------------------------------------------------------------
 # target_link_libraries (exampleApp PRIVATE spdlog)

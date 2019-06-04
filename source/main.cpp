@@ -2,20 +2,21 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <nlohmann/json.hpp>
 
 #include "SomeClass.h"
 #include "version.h"
 
-using namespace std;
+using json = nlohmann::json;
 
 void printHelp()
 {
-    cout << "Help for cleanCppApplication " << endl;
-    cout << "Version: " << Version::current().asLongStr() << endl;
-    cout << "Version: " << Version::current().asShortStr() << endl;
-    cout << "Version: " << Version::current().asNumber() << endl;
-    cout << "Author:  " << endl;
-    cout << "URL:     " << endl;
+    std::cout << "Help for cleanCppApplication " << std::endl;
+    std::cout << "Version: " << Version::current().asLongStr() << std::endl;
+    std::cout << "Version: " << Version::current().asShortStr() << std::endl;
+    std::cout << "Version: " << Version::current().asNumber() << std::endl;
+    std::cout << "Author:  " << "Dendi Suhubdy" << std::endl;
+    std::cout << "URL:     " << "https://github.com/bitwyre/simple_matching_engine" << std::endl;
     /// @todo Do stuff in here also
 }
 
@@ -68,25 +69,26 @@ int main(int argc, char const* argv[])
     int argIt;
     for (argIt = 1; argIt < argc; ++argIt)
     {
-        string tmp = argv[argIt];
+        std::string tmp = argv[argIt];
 
         if (tmp == "--help" || tmp == "-h")
             printHelp();
         else if (tmp == "--version")
-            cout << "v" << Version::current().asLongStr() << endl;
+            std::cout << "v" << Version::current().asLongStr() << std::endl;
         else
             break;
     }
     // process rest of the free arguments. EG. file list, word list
     for (; argIt < argc; ++argIt)
-        cout << argv[argIt] << endl;
+        std::cout << argv[argIt] << std::endl;
 
-    std::string line;
+    std::string incoming_order;
 
-    while(std::getline(std::cin, line)) // read from std::cin
+    while(std::getline(std::cin, incoming_order)) // read from std::cin
     {
         // show that it arrived
-        std::cout << line << std::endl;
+        auto incoming_order_dict = json::parse(incoming_order);
+        std::cout << incoming_order_dict << std::endl;
     }
     return 0;
 }
