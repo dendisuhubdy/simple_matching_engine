@@ -1,5 +1,10 @@
 # Simple Exchange
 
+[![Build Status](https://travis-ci.com/bitwyre/simple_matching_engine.svg?token=4uzYSvfexL97ww9EYpzx&branch=master)](https://travis-ci.com/bitwyre/simple_matching_engine)
+
+## Description
+
+This matching engine reads orders from a pipe then matches incoming orders in JSON form.
 
 ## Building instructions
 
