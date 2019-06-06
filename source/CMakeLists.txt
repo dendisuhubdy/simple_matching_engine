@@ -42,8 +42,8 @@ find_package (Threads REQUIRED) #threading
 
 add_executable(exchange
     ${CMAKE_CURRENT_BINARY_DIR}/version.cpp
-    SomeClass.cpp
-    SomeClass.h
+    OrderBook.cpp
+    OrderBook.h
     main.cpp)
 add_dependencies(exchange versionFileTouchForRebuild) # We want precise time of build in version
 target_include_directories(exchange PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

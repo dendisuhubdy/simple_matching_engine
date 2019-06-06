@@ -5,7 +5,7 @@
 
 add_executable(unittests EXCLUDE_FROM_ALL
     testmain.cpp
-    ../SomeClass.cpp
+    ../OrderBook.cpp
     )
 target_compile_definitions(unittests PRIVATE UNIT_TESTS) # add -DUNIT_TESTS define
 target_include_directories(unittests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)

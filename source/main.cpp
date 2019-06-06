@@ -4,7 +4,7 @@
 #include <vector>
 #include <nlohmann/json.hpp>
 
-#include "SomeClass.h"
+#include "OrderBook.h"
 #include "version.h"
 
 using json = nlohmann::json;
@@ -89,6 +89,12 @@ int main(int argc, char const* argv[])
         // show that it arrived
         auto incoming_order_dict = json::parse(incoming_order);
         std::cout << incoming_order_dict << std::endl;
+        int side = incoming_order_dict.at("side");
+        if (side == 0) {
+            // add to orderbook side buy
+        } else if (side == 1) {
+            // add to orderbook side sell
+        }
     }
     return 0;
 }
