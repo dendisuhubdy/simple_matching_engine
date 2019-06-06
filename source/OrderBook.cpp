@@ -11,10 +11,6 @@ OrderBook::~OrderBook() {}
 
 TEST_CASE("OrderBook check")
 {
-    OrderBook ob;
-    //some.set(5);
-    //REQUIRE(some.get() == 5);
-    //REQUIRE(some.get() != 2);
 }
 
 #endif
