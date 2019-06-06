@@ -25,6 +25,7 @@ add_custom_target(versionFileTouchForRebuild
 #------------------------------------------------------------------------------
 # Libraries dependencies
 find_package (Threads REQUIRED) #threading
+#find_package (nlohmann_json 3.2.0 REQUIRED)
 
 #------------------------------------------------------------------------------
 # By using macro to add common dependencies you can avoid repetition when you have
@@ -42,6 +43,7 @@ find_package (Threads REQUIRED) #threading
 
 add_executable(exchange
     ${CMAKE_CURRENT_BINARY_DIR}/version.cpp
+    OrderBook.cpp
     Order.cpp
     main.cpp)
 add_dependencies(exchange versionFileTouchForRebuild) # We want precise time of build in version
@@ -94,8 +96,6 @@ add_custom_target(run DEPENDS exchange-run)
 # find_package(GLUT REQUIRED)
 # target_include_directories(exchange SYSTEM ${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS} )
 # target_link_libraries(exchange ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
-
-find_package(nlohmann_json 3.2.0 REQUIRED)
 
 target_link_libraries(exchange PRIVATE nlohmann_json::nlohmann_json)
 

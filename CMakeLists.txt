@@ -68,6 +68,8 @@ add_subdirectory(data)
 enable_testing()
 add_subdirectory(test)
 
+add_subdirectory(third_party)
+
 # Source code
 add_subdirectory(source)
 
