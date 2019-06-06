@@ -84,21 +84,11 @@ int main(int argc, char const* argv[])
 
     std::string incoming_order;
 
-    //while(std::getline(std::cin, incoming_order)) // read from std::cin
-    //{
-        //// show that it arrived
-        //auto incoming_order_dict = json::parse(incoming_order);
-    //}
-    //
+    while(std::getline(std::cin, incoming_order)) // read from std::cin
+    {
+        // show that it arrived
+        auto incoming_order_dict = json::parse(incoming_order);
+    }
 
-    std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
-    std::time_t timestamp = std::chrono::system_clock::to_time_t(now);
-    uint32_t side = 0; // buy
-    uint32_t price = 7700;
-    uint32_t quantity = 2;
-    std::string trader = "hduihas8923ndsa";
-    std::string symbol = "BTCUSD";
-    Order order(timestamp, side, price, quantity, trader, symbol);
-    std::cout << order.display();
     return 0;
 }

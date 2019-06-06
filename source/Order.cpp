@@ -29,7 +29,6 @@ TEST_CASE("Order initialization")
     std::string trader = "hduihas8923ndsa";
     std::string symbol = "BTCUSD";
     Order order(timestamp, side, price, quantity, trader, symbol);
-
     std::string order_str = "1559816945 0 7700 2 hduihas8923ndsa BTCUSD";
     REQUIRE(order.display() == order_str);
 }

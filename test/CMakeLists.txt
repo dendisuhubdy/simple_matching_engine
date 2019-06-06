@@ -27,20 +27,19 @@ add_custom_target(checkVerbose
 # Good to use to integration test, run whole program with parameters,
 # check if it will crash, produce correct results, etc.
 
+# uncomment this to run tests for main market
+# problem is that this will not work since main market
+# does use loop inside main
 
 # Basic runable tests (will not crash)
-add_test(NAME "Is_Runable "
-    COMMAND $<TARGET_FILE:exchange>)
+#add_test(NAME "Is_Runable "
+    #COMMAND $<TARGET_FILE:exchange>)
 
-add_test(NAME "Is_Runable-v"
-    COMMAND $<TARGET_FILE:exchange> -v)
+#add_test(NAME "Is_Runable-v"
+    #COMMAND $<TARGET_FILE:exchange> -v)
 
-add_test(NAME "Is_Runable-h"
-    COMMAND $<TARGET_FILE:exchange> -h)
-
-
-
-
+#add_test(NAME "Is_Runable-h"
+    #COMMAND $<TARGET_FILE:exchange> -h)
 
 # Add unit test to CTest suite as one of the tests
 # unit test build is located in source/unittest/CMakeLists.txt

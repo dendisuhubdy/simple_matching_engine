@@ -11,6 +11,9 @@
 class OrderBook
 {
   public:
-    OrderBook(); 
+    OrderBook();
+    bool limit_order();
+    bool market_order();
+    bool cancel_order();
     ~OrderBook();
 };
